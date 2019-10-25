@@ -29,6 +29,10 @@ class CtdetDetector(BaseDetector):
     with torch.no_grad():
       output = self.model(images)[-1]
       hm = output['hm'].sigmoid_()
+      img = hm[0][1].data.cpu().numpy()
+      cv2.namedWindow('jingsen')
+      cv2.imshow('jingsen', img)
+      cv2.waitKey(1)
       wh = output['wh']
       reg = output['reg'] if self.opt.reg_offset else None
       if self.opt.flip_test:

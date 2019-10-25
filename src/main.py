@@ -82,10 +82,10 @@ def main(opt):
         logger.write('{} {:8f} | '.format(k, v))
       if log_dict_val[opt.metric] < best:
         best = log_dict_val[opt.metric]
-        save_model(os.path.join(opt.save_dir, 'model_best.pth'), 
+        save_model(os.path.join(opt.save_dir, 'model_best_test.pth'),
                    epoch, model)
     else:
-      save_model(os.path.join(opt.save_dir, 'model_last.pth'), 
+      save_model(os.path.join(opt.save_dir, 'model_last_test.pth'),
                  epoch, model, optimizer)
     logger.write('\n')
     if epoch in opt.lr_step:

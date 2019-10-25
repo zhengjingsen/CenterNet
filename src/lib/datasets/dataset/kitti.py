@@ -15,7 +15,7 @@ import torch.utils.data as data
 
 
 class KITTI(data.Dataset):
-  num_classes = 3
+  num_classes =  2
   default_resolution = [384, 1280]
   mean = np.array([0.485, 0.456, 0.406], np.float32).reshape(1, 1, 3)
   std = np.array([0.229, 0.224, 0.225], np.float32).reshape(1, 1, 3)
@@ -35,7 +35,7 @@ class KITTI(data.Dataset):
     self.max_objs = 50
     self.class_name = [
       '__background__', 'Pedestrian', 'Car', 'Cyclist']
-    self.cat_ids = {1:0, 2:1, 3:2, 4:-3, 5:-3, 6:-2, 7:-99, 8:-99, 9:-1}
+    self.cat_ids = {1:0, 2:1, 3:0, 4:1, 5:1, 6:0, 7:1, 8:-99, 9:-1}
     
     self._data_rng = np.random.RandomState(123)
     self._eig_val = np.array([0.2141788, 0.01817699, 0.00341571],

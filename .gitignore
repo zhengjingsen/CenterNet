@@ -13,6 +13,8 @@ preds/*
 __pycache__/
 *.py[cod]
 *$py.class
+data/*
+.idea/*
 
 # C extensions
 *.so
